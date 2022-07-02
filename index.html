@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta name="ROBOTS" content="INDEX, FOLLOW" />
+    <meta name="Document-state" content="Dynamic" />
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon"/>
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
+
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+    <meta name="description" content="Digital Cat projects, проекты, приложения, applications" />
+    <meta name="keywords" content="applications pour androyd, приложения для адроид, android applications" />
+    <title>Digital cat</title>
+    
+    <meta property="og:type" content="website" />
+     <meta property="og:title" content="Digital cat" />
+     <meta property="og:description" content="Digital Cat projects, проекты, приложения, applications" />
+     <meta name="title" content="Digital cat" />
+    <link rel="image_src" href="images/logo512x512.png" />
+    <meta property="og:image" content="images/logo512x512.png"/>
+
+    <!-- шрифт  -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet">
+
+         
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link type="text/css" rel="stylesheet" href="css/dc.css"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+
+</head>
+<body id="id_body">
+    <div style="padding: 3px; text-align: right; border-bottom: 1px grey solid; height: 38px; vertical-align: middle;">
+        <img style="float: left; max-height: 32px; height: 32px;" src="images/long_big.jpg" alt="Digital Cat" title="Digital Cat" />
+        <select id="select_language" onchange="select_language();" style="vertical-align: middle; max-height: 32px; height: 32px;">
+            <option value="en" selected="selected">English</option>
+            <option value="ru">Русский</option>
+            <option value="fr">Français</option>
+            <option value="dt">Deutsch</option>
+        </select>
+    </div>
+
+    <div id="div_ru" class="language_div">
+        <h1>Проекты</h1>
+        <div style="text-align: center;">
+            <div class="project_card">
+                <h2>Сканер QR-кодов</h2>
+                <img style="max-width: 90%; margin: 13px 1px;" src="images/card_main.jpg" alt="Сканер QR-кодов">
+                <p>Сканер QR-кодов и штрихкодов с возможностью непрерывного сканирования.</p>
+                <p><a href="qr_scanner.html">Политика конфиденциальности...</a></p>
+            </div>
+        </div>
+    </div>
+
+    <div id="div_en" class="language_div">
+        <h1>Projects</h1>
+        <div style="text-align: center;">
+            <div class="project_card">
+                <h2>QR Code Scanner</h2>
+                <img style="max-width: 90%; margin: 13px 1px;" src="images/card_main.jpg" alt="QR Code Scanner">
+                <p>QR code and barcode scanner with continuous scanning capability.</p>
+                <p><a href="qr_scanner.html">Privacy Policy...</a></p>
+            </div>
+        </div>
+    </div>
+
+
+    <div id="div_fr" class="language_div">
+        <h1>Projets</h1>
+        <div style="text-align: center;">
+            <div class="project_card">
+                <h2>Scanner de codes QR</h2>
+                <img style="max-width: 90%; margin: 13px 1px;" src="images/card_main.jpg" alt="Scanner de codes QR">
+                <p>Scanner de codes QR et de codes à barres avec possibilité de numérisation continue.</p>
+                <p><a href="qr_scanner.html">Politique de confidentialité...</a></p>
+            </div>
+        </div>
+    </div>
+
+    <div id="div_dt" class="language_div">
+        <h1>Vorhaben</h1>
+        <div style="text-align: center;">
+            <div class="project_card">
+                <h2>QR-Code-Scanner</h2>
+                <img style="max-width: 90%; margin: 13px 1px;" src="images/card_main.jpg" alt="QR-Code-Scanner">
+                <p>QR- und Barcode-Scanner mit kontinuierlicher Scanfunktion.</p>
+                <p><a href="qr_scanner.html">Datenschutz...</a></p>
+            </div>
+        </div>
+    </div>
+
+
+    <script>    
+        function select_language(){
+            $('.language_div').each(function(index, elem){ // полупрозрачные элементы - при наведении плавно отключают прозрачность
+                $(elem).hide();
+            });
+            var sel = document.getElementById("select_language");
+            var val= sel.options[sel.selectedIndex].value;
+            $("#div_"+val).show();
+        }
+        $(window).on('load', function (e) { // Дублируем
+            select_language();
+        })
+    </script>
+</body>
+</html>
