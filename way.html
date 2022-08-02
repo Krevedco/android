@@ -473,10 +473,10 @@ Politique de confidentialité, n'hésitez pas à nous contacter à back.cat.it.g
 
             var userLang = " "+navigator.language || navigator.userLanguage;
             alert(userLang);
-            if ((userLang.indexOf('RU'))||(userLang.indexOf('ru'))) language="ru";
-            if ((userLang.indexOf('EN'))||(userLang.indexOf('en'))) language="en";
-            if ((userLang.indexOf('FR'))||(userLang.indexOf('fr'))) language="fr";
-            if ((userLang.indexOf('DT'))||(userLang.indexOf('dt'))) language="dt";
+            if ((userLang.indexOf('RU')>0)||(userLang.indexOf('ru')>0)) language="ru";
+            if ((userLang.indexOf('EN')>0)||(userLang.indexOf('en')>0)) language="en";
+            if ((userLang.indexOf('FR')>0)||(userLang.indexOf('fr')>0)) language="fr";
+            if ((userLang.indexOf('DT')>0)||(userLang.indexOf('dt')>0)) language="dt";
         }
         select_language(language);
     })
