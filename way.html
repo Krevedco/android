@@ -27,10 +27,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link type="text/css" rel="stylesheet" href="css/dc.css"/>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-    <script type="text/javascript">
-        var userLang = navigator.language || navigator.userLanguage;
-        alert ("The language is: " + userLang);
-    </script>
 
 </head>
 <body id="id_body">
@@ -472,7 +468,14 @@ Politique de confidentialité, n'hésitez pas à nous contacter à back.cat.it.g
         $("#div_"+val).show();
     }
     $(window).on('load', function (e) { // Дублируем
-        var language = getUrlParameter('language')
+        var language = getUrlParameter('language'); // ru en fr dt
+        if ((language=="")||(language==undefined)){
+            var userLang = " "+navigator.language || navigator.userLanguage;
+            if ((userLang.indexOf('RU'))||(userLang.indexOf('ru'))) language="ru";
+            if ((userLang.indexOf('EN'))||(userLang.indexOf('en'))) language="en";
+            if ((userLang.indexOf('FR'))||(userLang.indexOf('fr'))) language="fr";
+            if ((userLang.indexOf('DT'))||(userLang.indexOf('dt'))) language="dt";
+        }
         select_language(language);
     })
     var getUrlParameter = function getUrlParameter(sParam) {
