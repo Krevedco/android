@@ -47,7 +47,7 @@
         <div style="text-align: center;">
             <div class="project_card">
                 <h2>Где ты?</h2>
-                <img style="max-width: 90%; margin: 13px 1px;" src="images/way_big.jpg.jpg" alt="Где ты?" title="Где ты?">
+                <img style="max-width: 90%; margin: 13px 1px;" src="images/way_big.jpg" alt="Где ты?" title="Где ты?">
                 <p>Приложение "Где ты?" отображает на карте в реальном времени Ваших друзей, коллег или родственников. А так же показывает Ваше местоположение Вашим друзьям.</p>
                 <p><a href="way.html.html">Подробней...</a></p>
                 <p><a href="way_pp.html.html">Политика конфиденциальности...</a></p>
@@ -101,18 +101,44 @@
     </div>
 
 
-    <script>    
-        function select_language(){
-            $('.language_div').each(function(index, elem){ // полупрозрачные элементы - при наведении плавно отключают прозрачность
+    <script>
+        function select_language(language){
+            $('.language_div2').each(function(index, elem){ // полупрозрачные элементы - при наведении плавно отключают прозрачность
                 $(elem).hide();
             });
-            var sel = document.getElementById("select_language");
-            var val= sel.options[sel.selectedIndex].value;
+            var sel= document.getElementById("select_language"),
+                val;
+            if (language==undefined)
+                val= sel.options[sel.selectedIndex].value;
+            else {
+                val = language;
+                $(sel).val(language);
+            }
             $("#div_"+val).show();
         }
         $(window).on('load', function (e) { // Дублируем
-            select_language();
+            var language = getUrlParameter('language'); // ru en fr dt
+            if ((language=="")||(language==undefined)){
+                var userLang = " "+navigator.language || navigator.userLanguage;
+                if ((userLang.indexOf('RU')>0)||(userLang.indexOf('ru')>0)) language="ru";
+                if ((userLang.indexOf('EN')>0)||(userLang.indexOf('en')>0)) language="en";
+                if ((userLang.indexOf('FR')>0)||(userLang.indexOf('fr')>0)) language="fr";
+                if ((userLang.indexOf('DT')>0)||(userLang.indexOf('dt')>0)) language="dt";
+            }
+            select_language(language);
         })
-    </script>
+        var getUrlParameter = function getUrlParameter(sParam) {
+            var sPageURL = decodeURIComponent(window.location.search.substring(1)),
+                sURLVariables = sPageURL.split('&'),
+                sParameterName,
+                i;
+            for (i = 0; i < sURLVariables.length; i++) {
+                sParameterName = sURLVariables[i].split('=');
+                if (sParameterName[0] === sParam) {
+                    return sParameterName[1] === undefined ? true : sParameterName[1];
+                }
+            }
+        };
+
 </body>
 </html>
