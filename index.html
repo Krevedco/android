@@ -103,7 +103,7 @@
 
     <script>
         function select_language(language){
-            $('.language_div2').each(function(index, elem){ // полупрозрачные элементы - при наведении плавно отключают прозрачность
+            $('.language_div').each(function(index, elem){ // полупрозрачные элементы - при наведении плавно отключают прозрачность
                 $(elem).hide();
             });
             var sel= document.getElementById("select_language"),
@@ -139,6 +139,7 @@
                 }
             }
         };
+        </script>
 
 </body>
 </html>
